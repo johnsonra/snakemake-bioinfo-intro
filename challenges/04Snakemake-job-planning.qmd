@@ -1,0 +1,23 @@
+---
+title: "How Snakemake plans what jobs to run"
+format: revealjs
+---
+
+## DAG of jobs
+
+![](https://carpentries-incubator.github.io/snakemake-novice-bioinformatics/fig/dag_1.svg)
+
+## Challenge 1
+
+If we asked Snakemake to run `kallisto_quant` on all three of the reference samples (ref1, ref2, ref3), how many jobs would that be in total?
+
+## Challenge 2
+
+Run `kallisto_quant` on all three of the etoh60 samples. Now edit the Snakefile so that the `qual_threshold` for `trimreads` is "22", rather than "20".
+
+How would you get Snakemake to update all three Kallisto results:
+
+1. By using the -R flag
+2. By using the -f flag
+3. By using the touch command
+4. By deleting some of the existing files
