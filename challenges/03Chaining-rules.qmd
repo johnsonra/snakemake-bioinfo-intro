@@ -1,0 +1,44 @@
+---
+title: "Chaining Rules"
+format: revealjs
+---
+
+## Challenge 1
+
+Think about any data processing task you have done yourself, and write down three or four steps from that workflow.
+
+What were the inputs to, and outputs from, each step?
+
+How did the steps connect up, in terms of data going from one to the next? You may want to sketch this out and use arrows to indicate the linkages between the steps.
+
+## Challenge 1 (cont)
+
+```
+"Boil Water" : input=cold water, output=hot water
+
+"Brew Tea" : input=[hot water, tea bag, mug], output=tea infusion
+
+"Add Milk And Sugar" : input=[tea infusion, milk, sugar], output=cuppa
+```
+
+## Challenge 2
+
+Given that the index input is missing, what would you expect Snakemake to do if the new rule was run now?
+
+Try it by telling Snakemake to run the new rule on the files `ref1_1.fq` and `ref1_2.fq`. Since the rule defines multiple outputs, asking for any one of the output files will be enough.
+
+## Challenge 3
+
+Instruct Snakemake how to build the genome index as part of the pipeline by adding another rule. The command we need to run is:
+
+```
+kallisto index -i index_file_to_make fasta_file_to_index
+```
+
+The file to be indexed is:
+
+```
+transcriptome/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz
+```
+
+Make it so that the output printed by the program is captured to a file, and therefore your rule will have two separate outputs: the *index file* and the *log file*. Note that the program prints messages on *stderr*, so you will need to use `>&` rather than `>` to capture the output.
