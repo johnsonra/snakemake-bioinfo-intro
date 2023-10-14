@@ -2,3 +2,9 @@
 
 *.Rproj
 .Rproj.user
+
+Snakefile
+.bash_history
+.snakemake/
+
+*.count

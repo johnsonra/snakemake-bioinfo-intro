@@ -8,7 +8,8 @@ FROM ubuntu
 RUN apt-get update && apt-get install -y \
   nano \
   wget \
-  xz-utils
+  xz-utils \
+  less
   
 # create miniconda folder
 RUN mkdir ~/miniconda3
