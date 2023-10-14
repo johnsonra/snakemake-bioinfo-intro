@@ -1,0 +1,35 @@
+---
+title: "Running commands with Snakemake"
+format: revealjs
+---
+
+## The sample dataset
+
+The sample dataset represents a transcriptomics experiment in brewer's yeast (Saccharomyces cerevisiae) under three conditions:
+
+* `etoh60` - Treated with 60% ethanol
+* `temp33` - Treated at 33 degrees celsius
+* `ref` - Untreated
+
+For each condition there are 3 repeats, making 9 total samples.
+
+## Challenge 1
+
+Run `snakemake --help | less` to see the help for all available options (or google the help file). What does the `-p` option in the snakemake command above do?
+
+* Protects existing output files
+* Prints the shell commands that are being run to the terminal <!-- correct -->
+* Tells Snakemake to only run one process at a time
+* Prompts the user for the correct input file
+
+## Challenge 2
+
+Modify the Snakefile to count the number of sequences in `reads/ref1_1.fq`, rather than the number of lines.
+
+* Rename the rule to "countreads"
+* Keep the output file name the same
+* Remember that the result needs to go into the output file, not just be printed on the screen.
+
+## Challenge 3
+
+Add a second rule to count the sequences in `reads/etoh60_1_1.fq`. Add this to the same Snakefile you already made, under the "countreads" rule, and run your rules in the terminal. When running the snakemake command you’ll need to tell Snakemake to make both the output files.
