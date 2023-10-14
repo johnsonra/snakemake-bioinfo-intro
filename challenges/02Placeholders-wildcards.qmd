@@ -1,0 +1,44 @@
+---
+title: "Placeholders and wildcards"
+format: revealjs
+---
+
+## Challenge 1
+
+Modify your Snakefile to incorporate the changes discussed up to this point, using the wildcard and input/output placeholders.
+
+```
+rule countreads:
+  output: "{myfile}.fq.count"
+  input:  "reads/{myfile}.fq"
+  shell:
+    "echo $(( $(wc -l <{input}) / 4 )) > {output}"
+```
+
+Delete the now-redundant second rule, so your Snakefile should contain just one rule named *countreads*.
+
+Using this new rule, determine how many reads are in the `temp33_1_1.fq` file.
+
+## Challenge 2
+
+Our rule puts the sequence counts into output files named like `ref1_1.fq.count`. How would you have to change the "countreads" rule definition if you wanted:
+
+1. the output file for `reads/ref1_1.fq` to be `counts/ref1_1.txt`?
+
+2. the output file for `reads/ref1_1.fq` to be `ref1_counts/fq.1.count` (for `reads/ref1_2.fq` to be `ref1_counts/fq.2.count`, etc...)?
+
+3. the output file for `reads/ref1_1.fq` to be `countreads_1.txt`?
+
+## Challenge 3
+
+Here is a command that will trim and filter low quality reads from a FASTQ file.
+
+```
+fastq_quality_trimmer -t 20 -l 100 -o output.fq <input.fq
+```
+
+Add a second rule to your Snakefile to run this trimmer. You should make it so that valid outputs are files with the same name as the input, but in a subdirectory named ‘trimmed’, for example:
+
+* trimmed/ref1_1.fq
+* trimmed/temp33_1_1.fq
+* etc...
