@@ -1,0 +1,25 @@
+---
+title: "Processing lists of inputs"
+format: revealjs
+---
+
+## Challenge 1
+
+Check that the *all_counts* rule is working. Now adapt the Snakefile so that it makes all the counts for both of the pairs of reads (`_1.fq` and `_2.fq`), and also for both trimmed and untrimmed versions of the files. So you should end up with 36 count files in total.
+
+## Challenge 2
+
+1. Make it so that the all_counts rule concatenates all the count files into a single output file named `all_counts_concatenated.txt`.
+2. Adapt the rule further so that there are two outputs named `trimmed_counts_concatenated.txt` and `untrimmed_counts_concatenated.txt`, and the respective counts go into each.
+
+*Hint: you can put two commands into the shell part, separated by a semicolon, `;`.*
+
+## Challenge 3
+
+In the Python interpreter, use `glob_wildcards()` to list the names of all nine samples, that is the three replicates of each condition.
+
+## Challenge 4
+
+Still in the Python interpreter, use the `expand()` function in combination with the `glob_wildcards()` to make a list of all the count files, and then all the *kallisto_quant* output files that would be generated for all the nine samples.
+
+Remember you can save the result of `glob_wildcards()` to a variable - this works the same way in the Python interpreter as it does in the Snakefile.
