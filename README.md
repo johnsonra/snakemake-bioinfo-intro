@@ -4,24 +4,24 @@ The information in this repository supports a video series titled [Intro to Snak
 
 Intro to Snakemake for Bioinformatics consists of the following modules. Video links will be added as they become available.
 
-* Setup
-* Running commands with Snakemake ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/01Running-commands.html))
-* Placeholders and wildcards ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/02Placeholders-wildcards.html))
-* Chaining rules ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/03Chaining-rules.html))
-* How Snakemake plans what jobs to run ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/04Snakemake-job-planning.html))
-* Processing lists of inputs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/05Processing-lists-of-inputs.html))
-* Handling awkward programs
-* Finishing the basic workflow
-* Configuring workflows
-* Optimizing workflow performance
-* Conda integration
-* Constructing a whole new workflow
-* Cleaning up
-* Robust quoting in Snakemake files
+0. Setup
+1. Running commands with Snakemake ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/01Running-commands.html))
+2. Placeholders and wildcards ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/02Placeholders-wildcards.html))
+3. Chaining rules ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/03Chaining-rules.html))
+4. How Snakemake plans what jobs to run ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/04Snakemake-job-planning.html))
+5. Processing lists of inputs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/05Processing-lists-of-inputs.html))
+6. Handling awkward programs
+7. Finishing the basic workflow
+8. Configuring workflows
+9. Optimizing workflow performance
+10. Conda integration
+11. Constructing a whole new workflow
+12. Cleaning up
+13. Robust quoting in Snakemake files
 
 ### Getting Started
 
-Before jumping in, you will need some software and the data we will be using. If you have Docker installed, you can load a container with everything ready to go with the following command:
+Before jumping in, you will need some software and the data we will be using. After [installing Docker](https://www.docker.com/products/docker-desktop/), you can load a container with everything ready to go with the following command:
 
 ```
 docker run -it --rm --mount type=bind,source="$(pwd)",target=/root/loc johnsonra/snakemake

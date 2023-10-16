@@ -9,3 +9,6 @@ Snakefile
 .snakemake/
 
 *.count
+
+video-raw/
+video-final/
