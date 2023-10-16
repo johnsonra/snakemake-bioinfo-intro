@@ -4,7 +4,6 @@
 .Rproj.user
 .Rhistory
 
-Snakefile
 .bash_history
 .snakemake/
 
