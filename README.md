@@ -5,11 +5,11 @@ The information in this repository supports a video series titled [Intro to Snak
 Intro to Snakemake for Bioinformatics consists of the following modules. Video links will be added as they become available.
 
 * Setup
-* Running commands with Snakemake ([challenges](challenges/01Running-commands.html))
-* Placeholders and wildcards ([challenges](challenges/02Placeholders-wildcards.html))
-* Chaining rules ([challenges](challenges/03Chaining-rules.html))
-* How Snakemake plans what jobs to run ([challenges](challenges/04Snakemake-job-planning.html))
-* Processing lists of inputs ([challenges](challenges/05Processing-lists-of-inputs.html))
+* Running commands with Snakemake ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/01Running-commands.html))
+* Placeholders and wildcards ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/02Placeholders-wildcards.html))
+* Chaining rules ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/03Chaining-rules.html))
+* How Snakemake plans what jobs to run ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/04Snakemake-job-planning.html))
+* Processing lists of inputs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/05Processing-lists-of-inputs.html))
 * Handling awkward programs
 * Finishing the basic workflow
 * Configuring workflows
