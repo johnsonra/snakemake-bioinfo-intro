@@ -8,3 +8,4 @@
 .snakemake/
 
 *.count
+*.mp4
