@@ -4,9 +4,9 @@ The information in this repository supports a video series titled [Intro to Snak
 
 Intro to Snakemake for Bioinformatics consists of the following modules. Video links will be added as they become available.
 
-0. Setup
-1. Running commands with Snakemake ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/01Running-commands.html))
-2. Placeholders and wildcards ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/02Placeholders-wildcards.html))
+0. Setup ([video](https://youtu.be/pKUFky2te40))
+1. Running commands with Snakemake ([video](https://youtu.be/JnoDIv-sxQs), [challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/01Running-commands.html))
+2. Placeholders and wildcards ([video](https://youtu.be/tKP9qriQtSQ), [challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/02Placeholders-wildcards.html))
 3. Chaining rules ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/03Chaining-rules.html))
 4. How Snakemake plans what jobs to run ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/04Snakemake-job-planning.html))
 5. Processing lists of inputs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/05Processing-lists-of-inputs.html))
@@ -18,6 +18,7 @@ Intro to Snakemake for Bioinformatics consists of the following modules. Video l
 11. Constructing a whole new workflow
 12. Cleaning up
 13. Robust quoting in Snakemake files
+
 
 ### Getting Started
 
