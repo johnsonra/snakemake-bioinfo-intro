@@ -12,3 +12,5 @@ Snakefile
 
 video-raw/
 video-final/
+
+README.html

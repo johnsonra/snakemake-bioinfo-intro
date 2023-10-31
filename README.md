@@ -10,9 +10,9 @@ Intro to Snakemake for Bioinformatics consists of the following modules. Video l
 3. Chaining rules ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/03Chaining-rules.html))
 4. How Snakemake plans what jobs to run ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/04Snakemake-job-planning.html))
 5. Processing lists of inputs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/05Processing-lists-of-inputs.html))
-6. Handling awkward programs
-7. Finishing the basic workflow
-8. Configuring workflows
+6. Handling awkward programs ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/06Handling-awkward-programs.html))
+7. Finishing the basic workflow ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/07Finishing-the-basic-workflow.html))
+8. Configuring workflows ([challenges](https://johnsonra.github.io/snakemake-bioinfo-intro/challenges/08Configuring-workflows.html))
 9. Optimizing workflow performance
 10. Conda integration
 11. Constructing a whole new workflow
