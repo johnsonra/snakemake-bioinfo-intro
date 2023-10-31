@@ -1,0 +1,60 @@
+---
+title: "Finishing the basic workflow"
+format: revealjs
+---
+
+## Full workflow
+
+![](https://carpentries-incubator.github.io/snakemake-novice-bioinformatics/fig/overview.svg)
+
+## Challenge 1
+
+An alternative application for transcript quantification is Salmon. The procedure is virtually identical, to Kallisto, having an indexing step and a quantification step. Note that in real usage you are advised to prepare and add decoy sequences to the transcriptome index, but for the purposes of this tutorial we’ll just keep things as simple as possible.
+
+## Challenge 1 (cont)
+
+Based upon the following command templates:
+
+```
+salmon index -t <transcriptome as fasta> -i <index name> -k 31
+salmon quant -i <index name> -l A -1 <fastq1> -2 <fastq2> \
+  --validateMappings -o <output path>
+```
+
+Add a pair of rules to index and align the reads with Salmon. Note that:
+
+1. Unlike Kallisto, the index produced by Salmon is a directory of files, not a single file - so both of these new rules will produce a directory as output.
+2. As noted in the last module, you only need the `directory()` marker on the outputs of rules, not the inputs.
+
+## Challenge 2
+
+Earlier, in module 5, we made a basic summary-type rule called *all_counts*. Now make a *multiqc* rule that gathers up all the FastQC, Salmon and Kallisto reports.
+
+## Challenge 2 (cont)
+
+* Your rule is going to have several named inputs, and these inputs will be lists of files generated with `expand()` functions.
+* Ensure that both kallisto_quant and salmon_quant are run on all 9 samples, that is all three repeats of all three conditions.
+* Run FastQC on the untrimmed reads only, and note that MultiQC specifically uses the `.zip` files for input, not the `.html`.
+* Since multiqc scans for input files, the input names don’t have to be explicitly mentioned in the `shell` part.
+
+## Challenge 3
+
+You may notice that MultiQC is not capturing any Kallisto output when making the reports. The reason for this is given in the [MultiQC manual here](https://multiqc.info/docs/#kallisto):
+
+> Note - MultiQC parses the standard out from Kallisto, not any of its output files (abundance.h5, abundance.tsv, and run_info.json). As such, you must capture the Kallisto output to a file when running it for use with MultiQC.
+
+Fix the Snakefile so that Kallisto terminal output is redirected to a file and can be collected by MultiQC.
+
+## Challenge 3 (cont)
+
+*Hint 1:* The manual above is not quite right - you need to capture both stdout and stderr, so use `>&` rather than `>`, as we did with the indexing step.
+
+*Hint 2:* MultiQC does not mind what you call the file, so choose your own sensible name.
+
+## Challenge 4
+
+Because MultiQC scans for suitable input rather than taking an explicit list of files, there is a risk that it picks up unwanted reports if you leave old files sitting in the directory. To make the rule fully explicit, one idea is to make a temporary directory and symlink all the files into it, and then tell MultiQC to look in there. Amend the *multiqc* rule so it does this.
+
+*Hint 1:* When making links, use `ln -snr -t <target_dir> <src>` to avoid link relativity issues.
+
+*Hint 2:* If you feel that tweaking some other rules would make this easier, feel free to do that.
