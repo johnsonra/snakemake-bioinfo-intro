@@ -22,12 +22,20 @@ Intro to Snakemake for Bioinformatics consists of the following modules. Video l
 
 ### Getting Started
 
-Before jumping in, you will need some software and the data we will be using. After [installing Docker](https://www.docker.com/products/docker-desktop/), you can load a container with everything ready to go with the following command:
+Before jumping in, you will need some software and the data we will be using. After [installing Docker](https://www.docker.com/products/docker-desktop/), you can load a container with everything ready to go with the following command (i.e. this the first time only):
 
 ```
-docker run -it --rm --mount type=bind,source="$(pwd)",target=/root/loc johnsonra/snakemake
+docker run -it --mount type=bind,source="/path/to/working/dir",target=/root/loc johnsonra/snakemake
 ```
 
-This will mount your current working directory at `/root/loc` inside of the Docker container and activate the `snakemake_carpentry` Conda environment. In the videos I will be using RStudio to edit files on my laptop while running them inside of the Docker container.
+where `/path/to/working/dir` is the path to the working directory on your computer that you want to be able to access both inside the container and outside the container. This will mount the desired working directory at `/root/loc` inside of the Docker container and activate the `snakemake_carpentry` Conda environment. (Normally, your Docker container is not able to access any files on your computer.) In the videos I will be using RStudio to edit files on my laptop while running them inside of the Docker container.
+
+When you finish a session, you can exit the container by typing `exit` at the command line. Next time you want to work with the container, make sure it is running in Docker Desktop under the Containers tab. Find the name of the container and enter this command in your terminal or PowerShell window:
+
+```
+docker exec -it container-name bash
+```
+
+where `container-name` is the name of your container.
 
 If you prefer running things locally (i.e. not in a container), check over [these setup instructions](https://carpentries-incubator.github.io/snakemake-novice-bioinformatics/setup.html) for the software and data we will be using.
