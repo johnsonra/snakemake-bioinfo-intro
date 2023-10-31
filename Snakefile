@@ -1,3 +1,20 @@
+# Inputs to process
+CONDITIONS = glob_wildcards("reads/{condition}_1_1.fq").condition
+print("Conditions are: ", CONDITIONS)
+
+REPLICATES = ["1", "2", "3"]
+READ = ["1", "2"]
+
+rule all_counts:
+  input: 
+    untrimmed = expand("reads.{cond}_{rep}_{read}.fq.count", cond=CONDITIONS, rep=REPLICATES, read=READ),
+    trimmed = expand("trimmed.{cond}_{rep}_{read}.fq.count", cond=CONDITIONS, rep=REPLICATES, read=READ)
+  output: 
+    untrimmed = "all_untrimmed_counts.txt",
+    trimmed = "all_trimmed_counts.txt"
+  shell:
+    "cat {input.untrimmed} > {output.untrimmed} ; cat {input.trimmed} > {output.trimmed}"
+
 # count number of reads
 rule countreads:
   output: "{indir}.{myfile}.fq.count"
