@@ -10,4 +10,7 @@
 *.count
 *.mp4
 
+video-raw/
+video-final/
+
 README.html
