@@ -32,15 +32,16 @@ rule trimreads:
 # align reads
 rule kallisto_quant:
   output:
-    h5   = "kallisto.{sample}/abundance.h5",
-    tsv  = "kallisto.{sample}/abundance.tsv",
-    json = "kallisto.{sample}/run_info.json"
+    directory("kallisto.{sample}")
   input:
     idx = "transcriptome/Saccharomyces_cerevisiae.R64-1-1.kallisto_index",
     fq1 = "trimmed/{sample}_1.fq",
     fq2 = "trimmed/{sample}_2.fq"
   shell:
-    "kallisto quant -i {input.idx} -o kallisto.{wildcards.sample} {input.fq1} {input.fq2}"
+    """
+      kallisto quant -i {input.idx} \
+        -o {output} {input.fq1} {input.fq2}
+    """
 
 # kallisto index
 rule kallisto_index:
@@ -51,3 +52,15 @@ rule kallisto_index:
   shell:
     "kallisto index -i {output.idx} {input} >& {output.log}"
 
+rule fastqc:
+  output:
+    html = "{indir}.{myfile}_fastqc.html",
+    zip  = "{indir}.{myfile}_fastqc.zip"
+  input:
+    "{indir}/{myfile}.fq"
+  shell:
+    """
+      fastqc -o . {input}
+      mv {wildcards.myfile}_fastqc.html {output.html}
+      mv {wildcards.myfile}_fastqc.zip  {output.zip}
+    """
